@@ -7,3 +7,4 @@ namespace FileHandling
 }
 
 void readFromFile(const std::string& fileName, std::string& fileContents);
+void splitString(const std::string& str, char delimiter, std::string result[], const int arraySize);

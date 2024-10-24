@@ -1,6 +1,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 void readFromFile(const std::string& fileName, std::string& fileContents)
 {
@@ -19,4 +20,16 @@ void readFromFile(const std::string& fileName, std::string& fileContents)
     }
 
     inputFile.close();
+}
+
+void splitString(const std::string& str, char delimiter, std::string result[], const int arraySize)
+{
+    std::stringstream sStream(str);
+    for (int i = 0; i < arraySize; i++)
+    {
+        if (!std::getline(sStream, result[i], delimiter))
+        {
+            return;
+        }
+    }
 }
