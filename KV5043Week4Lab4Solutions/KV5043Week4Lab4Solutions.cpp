@@ -2,6 +2,7 @@
 #include <sstream>
 #include <string>
 
+//Viewing pass by value
 bool StringToBool(std::string boolString);
 
 int main()
