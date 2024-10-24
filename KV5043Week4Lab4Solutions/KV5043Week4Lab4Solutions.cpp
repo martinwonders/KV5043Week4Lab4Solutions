@@ -1,35 +1,33 @@
 #include <iostream>
+#include <fstream>
+#include <string>
 
-namespace Player
-{
-	const int MAX_HEALTH = 100;
-	const int DAMAGE_INCREMENT = 10;
-}
-
-int CauseDamage();
+void readFromFile(std::string fileName);
 
 int main()
 {
-	std::cout << "The players health is: " << Player::MAX_HEALTH << std::endl;
-	std::cout << "Remaining Health = " << CauseDamage() << std::endl;
+    const std::string fileName = "example.txt";
+    readFromFile(fileName);
+    std::cout << fileName << std::endl;
 	return 0;
 }
 
-int CauseDamage()
+void readFromFile(std::string fileName)
 {
-	int numberOfHits = 0;
-	int remainingHealth = 0;
+    fileName = "different.txt";
+    std::ifstream inputFile(fileName);
 
-	std::cout << "Enter the number of hits the player takes: ";
-	std::cin >> numberOfHits;
+    if (!inputFile.is_open())
+    {
+        std::cerr << "Error: " << fileName << " could not be opened." << std::endl;
+        return;
+    }
 
-	int totalDamage = numberOfHits * Player::DAMAGE_INCREMENT;
-	remainingHealth = Player::MAX_HEALTH - totalDamage;
+    std::string line;
+    while (std::getline(inputFile, line))
+    {
+        std::cout << line << std::endl;
+    }
 
-	if (remainingHealth < 0)
-	{
-		remainingHealth = 0;
-	}
-
-	return remainingHealth;
+    inputFile.close();
 }
