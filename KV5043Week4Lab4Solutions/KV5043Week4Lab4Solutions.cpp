@@ -3,12 +3,12 @@
 #include "filehandling.h"
 
 int main() {
-    const std::string fileName = "example.txt";
+    
     std::string fileContents;
 
-    readFromFile(fileName, fileContents);
+    readFromFile(FileHandling::FILE_NAME, fileContents);
 
-    std::cout << "The contents of the file " << fileName << " are:\n" << std::endl;
+    std::cout << "The contents of the file " << FileHandling::FILE_NAME << " are:\n" << std::endl;
     std::cout << fileContents << std::endl;
     return 0;
 }
