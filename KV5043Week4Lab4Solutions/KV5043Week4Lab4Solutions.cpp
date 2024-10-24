@@ -12,7 +12,7 @@ int main() {
     std::cout << fileContents << std::endl;
 
     std::string tokens[5];
-    splitString("My Window, 100, 100, 300, 600", ',', tokens, 5);
+    splitString("My Window, 100, 100, 300, 600", FileHandling::DELIMETER, tokens, 5);
     for (std::string token : tokens)
     {
         std::cout << token << std::endl;

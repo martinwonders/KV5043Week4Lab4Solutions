@@ -4,6 +4,7 @@
 namespace FileHandling
 {
 	const std::string FILE_NAME = "example.txt";
+	const char DELIMETER = ',';
 }
 
 void readFromFile(const std::string& fileName, std::string& fileContents);
