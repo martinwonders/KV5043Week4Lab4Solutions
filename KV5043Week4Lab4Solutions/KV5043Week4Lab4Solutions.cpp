@@ -1,33 +1,35 @@
 #include <iostream>
-#include <sstream>
-#include <string>
 
-//Viewing pass by value
-bool StringToBool(std::string boolString);
+namespace Player
+{
+	const int MAX_HEALTH = 100;
+	const int DAMAGE_INCREMENT = 10;
+}
+
+int CauseDamage();
 
 int main()
 {
-	std::stringstream sStream("true, false, test, false\n");
-	std::string boolString;
-	bool boolArray[4] = {};
-
-	for (int i = 0; std::getline(sStream, boolString, ','); i++)
-	{
-		boolArray[i] = StringToBool(boolString);
-	}
-
-	for (bool value : boolArray)
-	{
-		std::cout << value << std::endl;
-	}
+	std::cout << "The players health is: " << Player::MAX_HEALTH << std::endl;
+	std::cout << "Remaining Health = " << CauseDamage() << std::endl;
+	return 0;
 }
 
-bool StringToBool(std::string boolString)
+int CauseDamage()
 {
-	bool result = false;
-	if (boolString == "true")
+	int numberOfHits = 0;
+	int remainingHealth = 0;
+
+	std::cout << "Enter the number of hits the player takes: ";
+	std::cin >> numberOfHits;
+
+	int totalDamage = numberOfHits * Player::DAMAGE_INCREMENT;
+	remainingHealth = Player::MAX_HEALTH - totalDamage;
+
+	if (remainingHealth < 0)
 	{
-		result = true;
+		remainingHealth = 0;
 	}
-	return result;
+
+	return remainingHealth;
 }
