@@ -18,5 +18,13 @@
     <ClCompile Include="KV5043Week4Lab4Solutions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="filehandling.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="filehandling.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

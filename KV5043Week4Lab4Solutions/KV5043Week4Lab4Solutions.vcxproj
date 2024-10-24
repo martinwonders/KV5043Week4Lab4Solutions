@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="filehandling.cpp" />
     <ClCompile Include="KV5043Week4Lab4Solutions.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="filehandling.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
