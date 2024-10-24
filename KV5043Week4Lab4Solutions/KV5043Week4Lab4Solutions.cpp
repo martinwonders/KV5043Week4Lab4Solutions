@@ -2,19 +2,21 @@
 #include <fstream>
 #include <string>
 
-void readFromFile(std::string fileName);
+void readFromFile(const std::string &fileName, std::string &fileContents);
 
-int main()
-{
+int main() {
     const std::string fileName = "example.txt";
-    readFromFile(fileName);
-    std::cout << fileName << std::endl;
-	return 0;
+    std::string fileContents;
+
+    readFromFile(fileName, fileContents);
+
+    std::cout << "The contents of the file " << fileName << " are:\n" << std::endl;
+    std::cout << fileContents << std::endl;
+    return 0;
 }
 
-void readFromFile(std::string fileName)
+void readFromFile(const std::string& fileName, std::string& fileContents)
 {
-    fileName = "different.txt";
     std::ifstream inputFile(fileName);
 
     if (!inputFile.is_open())
@@ -26,7 +28,7 @@ void readFromFile(std::string fileName)
     std::string line;
     while (std::getline(inputFile, line))
     {
-        std::cout << line << std::endl;
+        fileContents += line + '\n';
     }
 
     inputFile.close();
